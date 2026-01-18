@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 医疗蓝白主题 - 参考 lovable-project */
+:root {
+  /* 背景和前景 */
+  --background: 210 25% 98%;
+  --foreground: 210 50% 10%;
+
+  /* 卡片 */
+  --card: 0 0% 100%;
+  --card-foreground: 210 50% 10%;
+
+  /* 弹出层 */
+  --popover: 0 0% 100%;
+  --popover-foreground: 210 50% 10%;
+
+  /* 主色 - 医疗蓝 #0066CC */
+  --primary: 210 100% 40%;
+  --primary-foreground: 0 0% 100%;
+
+  /* 次要色 - 浅蓝背景 */
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 210 50% 10%;
+
+  /* 静音色 */
+  --muted: 210 20% 96%;
+  --muted-foreground: 210 15% 45%;
+
+  /* 强调色 - 深蓝 */
+  --accent: 210 80% 95%;
+  --accent-foreground: 210 100% 30%;
+
+  /* 危险/错误色 */
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* 边框和输入框 */
+  --border: 210 20% 88%;
+  --input: 210 20% 88%;
+  --ring: 210 100% 40%;
+
+  /* 圆角 */
+  --radius: 0.5rem;
+
+  /* 状态颜色 */
+  --success: 142 76% 36%;
+  --success-foreground: 0 0% 100%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 0 0% 100%;
+  --info: 199 89% 48%;
+  --info-foreground: 0 0% 100%;
+
+  /* 任务状态颜色 */
+  --status-pending: 38 92% 50%;
+  --status-in-progress: 210 100% 40%;
+  --status-completed: 142 76% 36%;
+  --status-cancelled: 0 84% 60%;
+
+  /* 侧边栏 */
+  --sidebar-background: 210 50% 15%;
+  --sidebar-foreground: 210 20% 95%;
+  --sidebar-primary: 210 100% 50%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 210 40% 25%;
+  --sidebar-accent-foreground: 210 20% 95%;
+  --sidebar-border: 210 30% 25%;
+  --sidebar-ring: 210 100% 50%;
+
+  /* 医疗专用色 */
+  --medical-blue: 210 100% 40%;
+  --medical-blue-light: 210 80% 95%;
+  --medical-blue-dark: 210 100% 25%;
+  --medical-teal: 180 60% 45%;
+  --medical-green: 142 76% 36%;
+}
+
+/* 暗色模式（可选） */
+.dark {
+  --background: 210 50% 8%;
+  --foreground: 210 20% 95%;
+  --card: 210 40% 12%;
+  --card-foreground: 210 20% 95%;
+  --popover: 210 40% 12%;
+  --popover-foreground: 210 20% 95%;
+  --primary: 210 100% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 30% 20%;
+  --secondary-foreground: 210 20% 95%;
+  --muted: 210 25% 18%;
+  --muted-foreground: 210 15% 60%;
+  --accent: 210 40% 20%;
+  --accent-foreground: 210 100% 70%;
+  --destructive: 0 62% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 210 25% 22%;
+  --input: 210 25% 22%;
+  --ring: 210 100% 50%;
+  --sidebar-background: 210 50% 6%;
+  --sidebar-foreground: 210 20% 90%;
+  --sidebar-primary: 210 100% 50%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 210 35% 15%;
+  --sidebar-accent-foreground: 210 20% 90%;
+  --sidebar-border: 210 30% 18%;
+  --sidebar-ring: 210 100% 50%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* 医疗系统专用样式 */
+@layer components {
+  .medical-card {
+    @apply bg-card rounded-lg border shadow-sm;
+  }
+
+  .medical-stat-card {
+    @apply bg-card rounded-lg border p-4 transition-all hover:shadow-md;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .status-pending {
+    @apply bg-amber-100 text-amber-800;
+  }
+
+  .status-in-progress {
+    @apply bg-blue-100 text-blue-800;
+  }
+
+  .status-completed {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .status-cancelled {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .pda-button {
+    @apply h-14 text-lg font-medium rounded-xl;
+  }
+
+  .pda-card {
+    @apply bg-card rounded-xl border shadow-sm p-4;
+  }
+}
